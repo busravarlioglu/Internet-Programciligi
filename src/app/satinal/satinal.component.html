@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 card mt-4">
+            <h2 class="text-center mt-2">İletişim bilgileri</h2>
+            <table class="table" style="border-bottom: solid 1px #dee2e6;">
+                <tr>
+                    <td>
+                        E-posta bilgileriniz
+                    </td>
+                    <td>
+                        <input type="email" class="form-control" #email>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Cep telefonu
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" #cepTel>
+                    </td>
+                </tr>         
+            </table>
+            <h2 class="text-center">Teslimat bilgileri</h2>
+            <table class="table">
+                <tr>
+                    <td>
+                        Ad Soyad
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" #NameSurname>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Şehir
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" #city>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        İlçe
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" #Ilce>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Adres
+                    </td>
+                    <td>
+                        <textarea  id="" cols="30" rows="10" class="form-control" #adres></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Posta kodu
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" #postaCode>
+                    </td>              
+                </tr>
+                <tr>
+                    <td>
+                        Teslim alacak kişinin telefon numarası
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" #teslimTel>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn btn-primary w-100"(click)="onSubmit(email.value,cepTel.value,NameSurname.value,city.value,Ilce.value,adres.value,postaCode.value,teslimTel.value,urunId)">Sipariş et</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</div>

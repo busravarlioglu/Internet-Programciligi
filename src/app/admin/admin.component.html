@@ -1,0 +1,109 @@
+<span *ngIf="!this.fs.isSignedIn; else login">
+sayfa bulunamadı(404)
+</span>
+<ng-template #login>
+    <div class="container-fulid">
+        <div class="container">
+            <h2 class="text-center">favori ekle</h2>
+            <div class="col-md-12">
+                <table class="table">
+                    <tr *ngFor="let urun of urunler | async">
+                         
+                            <td *ngIf="urun.favori == false">
+                                <img [src]="urun.imgUrl" width="65px" height="65px">
+                            </td>
+                            <td *ngIf="urun.favori == false">
+                                {{urun.name}}
+                            </td >
+                            <td *ngIf="urun.favori == false">
+                               {{ urun.kategori}}
+                            </td>
+                            <td *ngIf="urun.favori == false">
+                                <button class="btn btn-success w-100" (click)="db.object('urunler/'+urun.Id).update({favori:true})">Favori ekle</button>
+                            </td>                 
+                    </tr>
+                </table>
+            </div> 
+            <div class="col-md-12 mb-4">
+                <h3 class="text-center">Yetki ver</h3>
+                <hr>
+                <label>
+                  <p class="label-txt">E-posta</p>
+                  <input type="email" #emailSingup class="input">
+                  <div class="line-box">
+                    <div class="line"></div>
+                  </div>
+                </label>
+                <label>
+                  <p class="label-txt">Şifreniz</p>
+                  <input type="password" #passwordSingup class="input">
+                  <div class="line-box">
+                    <div class="line"></div>
+                  </div>
+                </label>
+                <button (click)="onSingup(emailSingup.value,passwordSingup.value)" type="button" class="w-100">yetki ver</button>                  
+        </div>
+            <h2 class="text-center">Sipariş edilenler</h2>
+            <hr>
+            <div class="row">
+                        <div class="col-md-4 card" *ngFor="let siparis of siparisUrun | async">
+                            <div *ngFor="let urun of urunler | async">
+                                <div class="" style="border:none" *ngIf="siparis.urunId == urun.Id">
+                                    <h2 class="text-center">{{urun.name}}</h2>
+                                    <hr>
+                                    <img [src]="urun.imgUrl" class="img-fluid">
+                                </div>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        Sipariş eden kişi
+                                    </td>
+                                    <td>
+                                        {{siparis.nameSurname}}
+                                    </td>                               
+                                </tr>
+                                <tr>
+                                    <td>
+                                        cep telefonu
+                                    </td>
+                                    <td>
+                                        {{siparis.cepTel}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        gönderilecek yer
+                                    </td>
+                                    <td>
+                                        {{siparis.adres}}
+                                        <br>
+                                        {{siparis.city}}/{{siparis.Ilce}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Posta kodu
+                                    </td>
+                                    <td>
+                                        {{siparis.postaCode}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        İletişim bilgileri
+                                    </td>
+                                    <td>
+                                        {{siparis.teslimTel}} <br>
+                                        {{siparis.email}}
+                                    </td>
+                                </tr>
+    
+                            </table>
+                         <button class="btn btn-danger" (click)="db.list('siparis/'+siparis.Id).remove()">Siparişi sil</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    
+</ng-template>

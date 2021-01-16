@@ -1,0 +1,54 @@
+<div *ngFor="let urun of urunler |async" class="container">
+    <div class="row" *ngIf="urun.Id== urunId " id="urun">
+        <div class="col-md-4 p-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{urun.name}}</h5>
+                    <img [src]=urun.imgUrl alt="" class="img-fluid">
+                    <p class="text-center text-primary" style="font-size: 18pt; font-weight: bold;">{{urun.fiyat}}TL</p>                       
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 p-2" >
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center mb-5" style="color:rgb(107, 107, 107)">{{urun.name}}</h2>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                Özelikler
+                            </td>
+                            <td>
+                                {{urun.kisaAciklama}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Kategori
+                            </td>
+                            <td>
+                                {{urun.kategori}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                fiyat
+                            </td>
+                            <td>
+                                {{urun.fiyat}}₺
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                               <button class="btn btn-primary w-100" (click)="onSelect(urunId)">Satın al</button>
+                            </td>
+                        </tr>
+                    </table>                       
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+

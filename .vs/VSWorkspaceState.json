@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\class\\firebase",
+    "\\src\\app\\class\\firebase\\storage",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\firebase",
+    "\\src\\app\\services\\firebase\\storage",
+    "\\src\\app\\urunler"
+  ],
+  "SelectedNode": "\\src\\app\\services\\firebase\\storage\\upload.service.ts",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            
+                <h3 class="text-center">Giriş yap</h3>
+            <hr>
+                <label>
+                  <p class="label-txt">E-posta</p>
+                  <input type="email" #emailSingin class="input">
+                  <div class="line-box">
+                    <div class="line"></div>
+                  </div>
+                </label>
+                <label>
+                  <p class="label-txt">Şifreniz</p>
+                  <input type="password" #passwordSingin class="input">
+                  <div class="line-box">
+                    <div class="line"></div>
+                  </div>
+                </label>
+                <button (click)="onSingin(emailSingin.value,passwordSingin.value)" type="submit">Giriş yap</button>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+
